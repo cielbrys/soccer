@@ -28,7 +28,7 @@
     <input type="hidden" name="action" value="filter" />
       <label for="term" class="form__label">
         <span class="hidden">Search</span>
-        <input type="search" id="term" name="term" class="input input--filter">
+        <input type="search" id="term" name="term" class="input input--filter" value="<?php echo $term?>">
       </label>
       <input type="submit" value="Filter" class="form__submit input input--button">
     </form>

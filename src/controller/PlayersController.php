@@ -12,7 +12,18 @@ class PlayersController extends Controller {
   }
 
   public function index() {
-    $players = $this->playerDAO->selectTopPlayers();
+    $term ='';
+    if (!empty($_GET['action'])){
+      if($_GET['action'] == 'filter'){
+        $players = $this->playerDAO->search($_GET['term']);
+      }
+    }else{
+      $players = $this->playerDAO->selectTopPlayers();
+    };
+    if (!empty($_GET['term'])){
+      $term = $_GET['term'];
+    }
+    $this->set('term', $term);
     $this->set('players', $players);
   }
 }
